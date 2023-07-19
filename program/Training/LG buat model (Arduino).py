@@ -47,7 +47,7 @@ model = LogisticRegression()
 model.fit(X_train, y_train)
 
 # Menyimpan model yang telah dilatih dengan penamaan berulang jika sudah ada file dengan nama yang sama
-model_filename = '../water_quality_model.pkl'
+model_filename = 'water_quality_model.pkl'
 model_counter = 1
 while os.path.exists(model_filename):
     model_filename = f'water_quality_model_{model_counter}.pkl'
@@ -71,7 +71,7 @@ confusion = confusion_matrix(y_test, y_pred_mapped)
 result_data = pd.DataFrame({'water_quality_rating': y_test.values, 'Prediksi': y_pred_mapped, 'Akurasi': accuracy})
 
 # Menyimpan data hasil dan data uji dalam file Excel dengan penamaan berulang jika sudah ada file dengan nama yang sama
-excel_filename = '../water_quality_predictions.xlsx'
+excel_filename = 'water_quality_predictions.xlsx'
 excel_counter = 1
 while os.path.exists(excel_filename):
     excel_filename = f'water_quality_predictions_{excel_counter}.xlsx'

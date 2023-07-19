@@ -1,91 +1,110 @@
-import os
-import pandas as pd
-import pickle
-import serial
 import time
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, confusion_matrix
+import serial
+import os
+import joblib
 
-# Mapping for rating labels
-rating_labels = {
-    1: "sangat buruk",
-    2: "buruk",
-    3: "biasa",
-    4: "baik",
-    5: "sangat baik"
+# Membuat koneksi serial dengan Arduino
+ser = serial.Serial('COM3', 9600)  # Ganti 'COM3' dengan port serial Arduino yang sesuai
+
+# Membuat daftar kosong untuk menyimpan data sensor
+conductivity_list = []
+temperature_list = []
+turbidity_list = []
+total_dissolved_solids_list = []
+water_quality_rating_list = []
+
+# Set durasi dan interval pencatatan
+duration = 300  # Durasi dalam detik (5 menit)
+interval = 0.1  # Interval antara pembacaan dalam detik (100 ms)
+
+# Menghitung jumlah iterasi
+iterations = int(duration / interval)
+
+# Merekam data selama durasi yang ditentukan
+for _ in range(iterations):
+    # Membaca satu baris data dari Arduino
+    data = ser.readline().decode().strip()
+
+    # Memisahkan data menjadi nilai-nilai individual
+    values = data.split(',')
+
+    # Ekstraksi nilai-nilai sensor dan rating kualitas air
+    conductivity = float(values[0])
+    temperature = float(values[1])
+    turbidity = float(values[2])
+    total_dissolved_solids = float(values[3])
+    water_quality_rating = int(values[4])  # Anggap rating diberikan oleh Arduino
+
+    # Menambahkan nilai-nilai sensor dan rating kualitas air ke daftar yang sesuai
+    conductivity_list.append(conductivity)
+    temperature_list.append(temperature)
+    turbidity_list.append(turbidity)
+    total_dissolved_solids_list.append(total_dissolved_solids)
+    water_quality_rating_list.append(water_quality_rating)
+
+    # Menunggu interval yang ditentukan
+    time.sleep(interval)
+
+# Membuat kamus dengan data sensor
+data_dict = {
+    'conductivity': conductivity_list,
+    'temperature': temperature_list,
+    'turbidity': turbidity_list,
+    'total_dissolved_solids': total_dissolved_solids_list,
+    'water_quality_rating': water_quality_rating_list
 }
 
-# Chunk size for iterating over data
-chunk_size = 1000
+# Membuat DataFrame dari kamus data
+data = pd.DataFrame(data_dict)
 
-# Memuat model yang telah dilatih sebelumnya
-model_filename = '../water_quality_model.pkl'
-with open(model_filename, 'rb') as file:
-    model = pickle.load(file)
+# Memisahkan data menjadi fitur input (X) dan variabel target (y)
+X = data[['conductivity', 'temperature', 'turbidity', 'total_dissolved_solids']]
+y = data['water_quality_rating']
 
-# Establish serial communication with Arduino
-arduino_port = 'COM3'  # Replace with the correct port
-baud_rate = 9600
-arduino = serial.Serial(arduino_port, baud_rate, timeout=1)
-time.sleep(2)  # Allow time for Arduino to reset
+# Memisahkan data menjadi set data latih dan uji
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-# Create an empty DataFrame to store the results
-result_data = pd.DataFrame(columns=['Prediksi'])
+# Membuat dan melatih model regresi logistik
+model = LogisticRegression()
+model.fit(X_train, y_train)
 
-# Iterasi melalui data dalam chunk
-while True:
-    # Membaca data dari Arduino
-    data = arduino.readline().decode().strip()
-    if data:
-        # Memisahkan data menjadi fitur input (X)
-        values = data.split(',')
-        conductivity = float(values[0])
-        temperature = float(values[1])
-        turbidity = float(values[2])
-        total_dissolved_solids = float(values[3])
+# Memprediksi rating kualitas air untuk data uji
+y_pred = model.predict(X_test)
 
-        # Membuat DataFrame dengan data dari Arduino
-        input_data = pd.DataFrame({'conductivity': [conductivity],
-                                   'temperature': [temperature],
-                                   'turbidity': [turbidity],
-                                   'total_dissolved_solids': [total_dissolved_solids]})
+# Mengubah prediksi menjadi rentang yang diinginkan (1 hingga 5)
+y_pred_mapped = [max(min(int(round(prediction)), 5), 1) for prediction in y_pred]
 
-        # Memprediksi rating kualitas air
-        y_pred = model.predict(input_data)
+# Menghitung akurasi
+accuracy = accuracy_score(y_test, y_pred_mapped)
 
-        # Memetakan prediksi ke label yang diinginkan
-        y_pred_mapped = [rating_labels.get(prediction, "unknown") for prediction in y_pred]
+# Menghitung matriks konfusi per data
+cm_per_data = confusion_matrix(y_test, y_pred_mapped)
 
-        # Menampilkan hasil prediksi
-        prediction = y_pred_mapped[0]
-        print('Prediksi kualitas air:', prediction)
+# Membuat DataFrame dengan akurasi dan matriks konfusi per data
+result_data = pd.DataFrame({'Akurasi': [accuracy]})
+result_data = pd.concat([result_data, pd.DataFrame(cm_per_data)], axis=1)
 
-        # Menambahkan prediksi ke DataFrame
-        result_data = result_data.append({'Prediksi': prediction}, ignore_index=True)
-
-    # Check if spacebar is pressed to break the loop
-    if os.name == 'nt':
-        import msvcrt
-        if msvcrt.kbhit() and msvcrt.getch() == b' ':
-            print('Proses prediksi dihentikan.')
-            break
-    else:
-        import select
-        if select.select([sys.stdin,],[],[],0.01)[0]:
-            break
-
-    # Delay for 100 ms
-    time.sleep(0.1)
-
-# Close serial communication with Arduino
-arduino.close()
-
-# Save the result data to an Excel file
-excel_filename = '../water_quality_predictions.xlsx'
-excel_counter = 1
-while os.path.exists(excel_filename):
-    excel_filename = f'water_quality_predictions_{excel_counter}.xlsx'
-    excel_counter += 1
-
-with pd.ExcelWriter(excel_filename) as writer:
+# Menyimpan data hasil dan data uji ke file Excel
+with pd.ExcelWriter('water_quality_predictions.xlsx') as writer:
+    # Sheet Hasil
     result_data.to_excel(writer, sheet_name='Hasil', index=False)
+    
+    # Sheet Data Uji
+    X_test_with_cm = X_test.copy()
+    X_test_with_cm['water_quality_rating'] = y_test
+    X_test_with_cm['Prediksi'] = y_pred_mapped
+    X_test_with_cm['Klasifikasi'] = ['True Positive' if p == a else 'False Positive' for p, a in zip(y_pred_mapped, y_test)]
+    X_test_with_cm.to_excel(writer, sheet_name='Data Uji', index=False)
+    
+    # Sheet Data Latih
+    X_train_with_rating = X_train.copy()
+    X_train_with_rating['water_quality_rating'] = y_train
+    X_train_with_rating.to_excel(writer, sheet_name='Data Latih', index=False)
 
-print('Prediksi kualitas air berhasil dilakukan. Hasil disimpan dalam file:', excel_filename)
+# Menyimpan model yang telah dilatih untuk penggunaan selanjutnya
+model_file_name = 'water_quality_model.pkl'
+joblib.dump(model, model_file_name)

@@ -1,0 +1,51 @@
+#include <SoftwareSerial.h>
+
+SoftwareSerial mySerial(10, 11); // RX, TX
+
+void setup() {
+  Serial.begin(9600);
+  mySerial.begin(9600);
+}
+
+void loop() {
+  // Read sensor values
+  float conductivity = getConductivity();
+  float temperature = getTemperature();
+  float turbidity = getTurbidity();
+  float total_dissolved_solids = getTDS();
+
+  // Send sensor values to Python
+  mySerial.print(conductivity);
+  mySerial.print(",");
+  mySerial.print(temperature);
+  mySerial.print(",");
+  mySerial.print(turbidity);
+  mySerial.print(",");
+  mySerial.println(total_dissolved_solids);
+
+  delay(100);  // Wait for 100 milliseconds
+}
+
+float getConductivity() {
+  int conductivityPin = A0;  // Analog input pin connected to the conductivity sensor
+  int conductivityValue = analogRead(conductivityPin);
+  return map(conductivityValue, 0, 1023, 0, 1000);  // Map the value to the desired range
+}
+
+float getTemperature() {
+  int temperaturePin = A1;  // Analog input pin connected to the temperature sensor
+  int temperatureValue = analogRead(temperaturePin);
+  return map(temperatureValue, 0, 1023, -50, 150);  // Map the value to the desired range
+}
+
+float getTurbidity() {
+  int turbidityPin = A2;  // Analog input pin connected to the turbidity sensor
+  int turbidityValue = analogRead(turbidityPin);
+  return map(turbidityValue, 0, 1023, 0, 100);  // Map the value to the desired range
+}
+
+float getTDS() {
+  int tdsPin = A3;  // Analog input pin connected to the total dissolved solids (TDS) sensor
+  int tdsValue = analogRead(tdsPin);
+  return map(tdsValue, 0, 1023, 0, 5000);  // Map the value to the desired range
+}

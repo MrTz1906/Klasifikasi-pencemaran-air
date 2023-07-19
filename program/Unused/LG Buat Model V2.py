@@ -9,7 +9,7 @@ from sklearn.pipeline import make_pipeline
 import pickle
 
 # Load data from CSV
-data = pd.read_csv('example_data.csv')
+data = pd.read_csv('../Training/Contoh_data_Train.csv')
 
 # Separate input features (X) and target variable (y)
 X = data[['conductivity', 'temperature', 'turbidity', 'total_dissolved_solids']]
@@ -31,7 +31,7 @@ model = make_pipeline(poly_features, logreg)
 model.fit(X_train, y_train)
 
 # Save the trained model with incremented filename
-model_filename = '../water_quality_model.pkl'
+model_filename = '../Training/water_quality_model.pkl'
 model_counter = 1
 while os.path.exists(model_filename):
     model_filename = f'water_quality_model_{model_counter}.pkl'
@@ -55,7 +55,7 @@ confusion = confusion_matrix(y_test, y_pred_mapped)
 result_data = pd.DataFrame({'water_quality_rating': y_test.values, 'Prediksi': y_pred_mapped, 'Akurasi': accuracy})
 
 # Save the results and test data in an Excel file with incremented filename
-excel_filename = '../water_quality_predictions.xlsx'
+excel_filename = '../Training/water_quality_predictions.xlsx'
 excel_counter = 1
 while os.path.exists(excel_filename):
     excel_filename = f'water_quality_predictions_{excel_counter}.xlsx'

@@ -1,0 +1,5 @@
+This updated code incorporates polynomial features using the PolynomialFeatures transformer, which allows the logistic regression model to capture non-linear relationships between the input features. Additionally, the code uses a VotingClassifier to create an ensemble model that combines the predictions of multiple logistic regression models trained on different subsets of the data.
+
+The trained model is now saved in a pickle format using the .pkl file extension. Both the Excel file and the model file will have incremented filenames if a file with the same name already exists.
+
+Feel free to adjust the code as needed for your specific requirements.

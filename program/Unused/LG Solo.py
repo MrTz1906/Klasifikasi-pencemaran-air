@@ -17,7 +17,7 @@ rating_labels = {
 chunk_size = 1000
 
 # Memuat model yang telah dilatih sebelumnya
-model_filename = 'water_quality_model.pkl'
+model_filename = '../water_quality_model.pkl'
 with open(model_filename, 'rb') as file:
     model = pickle.load(file)
 
@@ -79,7 +79,7 @@ while True:
 arduino.close()
 
 # Save the result data to an Excel file
-excel_filename = 'water_quality_predictions.xlsx'
+excel_filename = '../water_quality_predictions.xlsx'
 excel_counter = 1
 while os.path.exists(excel_filename):
     excel_filename = f'water_quality_predictions_{excel_counter}.xlsx'

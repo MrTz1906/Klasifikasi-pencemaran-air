@@ -35,9 +35,9 @@ result_data = pd.DataFrame({'Accuracy': [accuracy]})
 result_data = pd.concat([result_data, pd.DataFrame(cm)], axis=1)
 
 # Save the result data and output data in the Excel file
-with pd.ExcelWriter('water_quality_predictions.xlsx') as writer:
+with pd.ExcelWriter('../water_quality_predictions.xlsx') as writer:
     result_data.to_excel(writer, sheet_name='Results', index=False)
     output_data.to_excel(writer, sheet_name='Predictions', index=False)
 
 # Save the trained model for later use
-joblib.dump(model, 'water_quality_model.pkl')
+joblib.dump(model, '../water_quality_model.pkl')

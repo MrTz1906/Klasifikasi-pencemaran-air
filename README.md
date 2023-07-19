@@ -1,2 +1,2 @@
 # REGRESI LOGISTIK UNTUK KLASIFIKASI PENCEMARAN KUALITAS AIR PADA SISTEM SENSOR ROBOT
- PENERAPAN METODE REGRESI LOGISTIK UNTUK KLASIFIKASI PENCEMARAN KUALITAS AIR PADA SISTEM SENSOR ROBOT BAWAH AIR 
+ Kode ini menggabungkan fitur polinomial menggunakan "transformator Fitur Polinomial", yang memungkinkan model regresi logistik untuk menangkap hubungan non-linier antara fitur masukan. Selain itu, kode menggunakan VotingClassifier untuk membuat model ansambel yang menggabungkan prediksi model regresi logistik berganda yang dilatih pada subkumpulan data yang berbeda. 

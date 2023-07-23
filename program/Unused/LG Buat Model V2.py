@@ -9,7 +9,7 @@ from sklearn.pipeline import make_pipeline
 import pickle
 
 # Load data from CSV
-data = pd.read_csv('../Training/Contoh_data_Train.csv')
+data = pd.read_csv('Contoh_data_Train.csv')
 
 # Separate input features (X) and target variable (y)
 X = data[['conductivity', 'temperature', 'turbidity', 'total_dissolved_solids']]

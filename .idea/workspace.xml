@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4b1563-64ec-4dcf-8f19-bd29193355a3" name="Changes" comment="" />
+    <list default="true" id="ea4b1563-64ec-4dcf-8f19-bd29193355a3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/program/PostTrain/Contoh.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/program/PostTrain/water_quality_model.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/program/PostTrain/water_quality_model_1.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/PostTrain/LG Setelah Train (CSV).py" beforeDir="false" afterPath="$PROJECT_DIR$/program/PostTrain/LG Setelah Train (CSV).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/PostTrain/LG Setelah Train (arduino).py" beforeDir="false" afterPath="$PROJECT_DIR$/program/PostTrain/LG Setelah Train (arduino).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/PostTrain/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/program/PostTrain/error_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/PostTrain/water_quality_predictions.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/program/PostTrain/water_quality_predictions.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/PostTrain/water_quality_predictions_1.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/PostTrain/water_quality_predictions_2.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/Training/Contoh_data_Train.csv" beforeDir="false" afterPath="$PROJECT_DIR$/program/Unused/Contoh_data_Train.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/Training/LG buat model (CSV).py" beforeDir="false" afterPath="$PROJECT_DIR$/program/Training/LG buat model (CSV).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/Training/water_quality_model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/Training/water_quality_predictions.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/program/Training/water_quality_predictions.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program/Unused/LG Buat Model V2.py" beforeDir="false" afterPath="$PROJECT_DIR$/program/Unused/LG Buat Model V2.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,29 +30,33 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2SmIHldRwb4VL9aIEwvXxicAYUq" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/program" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/program/PostTrain" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Downloads\Skripsi\program\Github\REGRESI-LOGISTIK-UNTUK-KLASIFIKASI-PENCEMARAN-KUALITAS-AIR-PADA-SISTEM-SENSOR-ROBOT\program\PostTrain" />
       <recent name="E:\Downloads\Skripsi\program\Github\REGRESI-LOGISTIK-UNTUK-KLASIFIKASI-PENCEMARAN-KUALITAS-AIR-PADA-SISTEM-SENSOR-ROBOT\program" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Downloads\Skripsi\program\Github\REGRESI-LOGISTIK-UNTUK-KLASIFIKASI-PENCEMARAN-KUALITAS-AIR-PADA-SISTEM-SENSOR-ROBOT\program\Unused" />
+      <recent name="E:\Downloads\Skripsi\program\Github\REGRESI-LOGISTIK-UNTUK-KLASIFIKASI-PENCEMARAN-KUALITAS-AIR-PADA-SISTEM-SENSOR-ROBOT\Example" />
+      <recent name="E:\Downloads\Skripsi\program\Github\REGRESI-LOGISTIK-UNTUK-KLASIFIKASI-PENCEMARAN-KUALITAS-AIR-PADA-SISTEM-SENSOR-ROBOT\program\Preproccess" />
       <recent name="E:\Downloads\Skripsi\program\Github\REGRESI-LOGISTIK-UNTUK-KLASIFIKASI-PENCEMARAN-KUALITAS-AIR-PADA-SISTEM-SENSOR-ROBOT" />
       <recent name="E:\Downloads\Skripsi\program\Github\REGRESI-LOGISTIK-UNTUK-KLASIFIKASI-PENCEMARAN-KUALITAS-AIR-PADA-SISTEM-SENSOR-ROBOT\program\Training" />
-      <recent name="E:\Downloads\Skripsi\program\Github\REGRESI-LOGISTIK-UNTUK-KLASIFIKASI-PENCEMARAN-KUALITAS-AIR-PADA-SISTEM-SENSOR-ROBOT\program\Unused" />
-      <recent name="E:\Downloads\Skripsi\program\Github\REGRESI-LOGISTIK-UNTUK-KLASIFIKASI-PENCEMARAN-KUALITAS-AIR-PADA-SISTEM-SENSOR-ROBOT\program\Preproccess" />
-      <recent name="E:\Downloads\Skripsi\program\Github\REGRESI-LOGISTIK-UNTUK-KLASIFIKASI-PENCEMARAN-KUALITAS-AIR-PADA-SISTEM-SENSOR-ROBOT\Example" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.LG Setelah Train (CSV)">
+  <component name="RunManager" selected="Python.LG buat model (CSV) (1)">
     <configuration name="LG Buat Model V2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="REGRESI-LOGISTIK-UNTUK-KLASIFIKASI-PENCEMARAN-KUALITAS-AIR-PADA-SISTEM-SENSOR-ROBOT" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -123,8 +143,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.LG Setelah Train (CSV)" />
         <item itemvalue="Python.LG buat model (CSV) (1)" />
+        <item itemvalue="Python.LG Setelah Train (CSV)" />
         <item itemvalue="Python.LG Buat Model V2" />
         <item itemvalue="Python.LG buat model (CSV)" />
       </list>
@@ -151,5 +171,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

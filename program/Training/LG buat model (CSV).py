@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 import pickle
 
 # Memuat data dari CSV
-data = pd.read_csv('Contoh_data_Train.csv')
+data = pd.read_csv('../Preproccess/water_potabilitysesuai.csv')
 
 # Memisahkan fitur input (X) dan variabel target (y)
 X = data[['conductivity', 'temperature', 'turbidity', 'total_dissolved_solids']]
@@ -20,10 +20,10 @@ model = LogisticRegression()
 model.fit(X_train, y_train)
 
 # Menyimpan model yang telah dilatih dengan penamaan berulang jika sudah ada file dengan nama yang sama
-model_filename = 'water_quality_model.pkl'
+model_filename = '../PostTrain/water_quality_model.pkl'
 model_counter = 1
 while os.path.exists(model_filename):
-    model_filename = f'water_quality_model_{model_counter}.pkl'
+    model_filename = f'../PostTrain/water_quality_model_{model_counter}.pkl'
     model_counter += 1
 with open(model_filename, 'wb') as file:
     pickle.dump(model, file)
@@ -31,8 +31,8 @@ with open(model_filename, 'wb') as file:
 # Memprediksi rating kualitas air untuk data uji
 y_pred = model.predict(X_test)
 
-# Memetakan prediksi ke rentang yang diinginkan (1 hingga 5)
-y_pred_mapped = [max(min(int(round(prediction)), 5), 1) for prediction in y_pred]
+# Memetakan prediksi ke rentang yang diinginkan (0 hingga 1)
+y_pred_mapped = [max(min(int(round(prediction)), 2), 0) for prediction in y_pred]
 
 # Menghitung akurasi
 accuracy = accuracy_score(y_test, y_pred_mapped)

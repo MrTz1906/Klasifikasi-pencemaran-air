@@ -21,14 +21,14 @@ log_filename = 'error_log.txt'
 logging.basicConfig(filename=log_filename, level=logging.ERROR)
 
 # Load the previously trained model
-model_filename = '../Training/water_quality_model.pkl'
+model_filename = 'water_quality_model.pkl'
 model = load(model_filename)
 
 # Create an empty list to store the results
 result_data = []
 
 # Read input data from CSV file
-input_data = pd.read_csv('example_data.csv')
+input_data = pd.read_csv('Contoh.csv')
 
 # Calculate the number of iterations needed based on the chunk size
 num_iterations = (len(input_data) + chunk_size - 1) // chunk_size

@@ -1,2 +1,6 @@
 ERROR:root:Error occurred: name 'time' is not defined
 ERROR:root:Error occurred: name 'time' is not defined
+ERROR:root:Error occurred: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- water_quality_rating
+

@@ -21,7 +21,7 @@ log_filename = 'error_log.txt'
 logging.basicConfig(filename=log_filename, level=logging.ERROR)
 
 # Load the previously trained model
-model_filename = '../Training/water_quality_model.pkl'
+model_filename = 'water_quality_model.pkl'
 model = load(model_filename)
 
 # Create an empty list to store the results

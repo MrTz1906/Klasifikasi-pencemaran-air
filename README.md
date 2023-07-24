@@ -7,11 +7,11 @@ Peneliti memakai metode logistic regression dalam upaya untuk membangun sistem k
 
 ![](Gambar/Model.png)
 
-##Sensor
+## Sensor
 alat alat yang di pakai berupa berikut dan komputer
 
 ![](Gambar/sensor.png)
 
-##Block diagram
+## Block diagram
 
 ![](Gambar/block.png)

@@ -2,39 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea4b1563-64ec-4dcf-8f19-bd29193355a3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/program/PostTrain/water_quality_model_1.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/PostTrain/water_quality_model_10.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/PostTrain/water_quality_model_11.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/PostTrain/water_quality_model_2.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/PostTrain/water_quality_model_3.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/PostTrain/water_quality_model_4.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/PostTrain/water_quality_model_5.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/PostTrain/water_quality_model_6.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/PostTrain/water_quality_model_7.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/PostTrain/water_quality_model_8.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/PostTrain/water_quality_model_9.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/Preproccess/water_potability - Copy.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/Preproccess/water_potabilitysesuai - Copy.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/Training/LG buat model (CSV)ver2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/Training/LG buat model (CSV)ver3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/Training/water_quality_predictions_1.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/Training/water_quality_predictions_10.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/Training/water_quality_predictions_11.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/Training/water_quality_predictions_2.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/Training/water_quality_predictions_3.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/Training/water_quality_predictions_4.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/Training/water_quality_predictions_5.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/Training/water_quality_predictions_6.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/Training/water_quality_predictions_7.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/Training/water_quality_predictions_8.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program/Training/water_quality_predictions_9.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Example/water_quality_model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Example/water_quality_model.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Example/water_quality_predictions.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Example/water_quality_predictions.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/PostTrain/water_quality_model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/program/PostTrain/water_quality_model.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/Preproccess/water_potability.csv" beforeDir="false" afterPath="$PROJECT_DIR$/program/Preproccess/water_potability.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/Training/Arduino (LG)" beforeDir="false" afterPath="$PROJECT_DIR$/program/PostTrain/Arduino (LG)" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program/Training/water_quality_predictions.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/program/Training/water_quality_predictions.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
